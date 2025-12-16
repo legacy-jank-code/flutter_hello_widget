@@ -4,7 +4,7 @@ version: 0.1.0
 homepage: https://github.com/legacy-jank-code/flutter_hello_widget
 repository: https://github.com/legacy-jank-code/flutter_hello_widget
 issue_tracker: https://github.com/legacy-jank-code/flutter_hello_widget/issues
-publish_to: https://pub.dartlang.org
+
 
 environment:
   sdk: ^3.7.0
