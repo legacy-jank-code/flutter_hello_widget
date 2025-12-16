@@ -1,9 +1,9 @@
 name: flutter_hello_widget
 description: "一个功能丰富的Flutter组件库，提供可定制的Hello系列UI组件，专注于无障碍访问和语义化标签支持。"
 version: 0.1.0
-homepage: https://github.com/qixin1106/flutter_hello_widget
-repository: https://github.com/qixin1106/flutter_hello_widget
-issue_tracker: https://github.com/qixin1106/flutter_hello_widget/issues
+homepage: https://github.com/legacy-jank-code/flutter_hello_widget
+repository: https://github.com/legacy-jank-code/flutter_hello_widget
+issue_tracker: https://github.com/legacy-jank-code/flutter_hello_widget/issues
 publish_to: https://pub.dartlang.org
 
 environment:
