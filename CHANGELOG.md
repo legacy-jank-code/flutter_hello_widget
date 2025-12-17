@@ -1,3 +1,16 @@
+## 0.1.1
+
+### Bug Fixes
+- 🛠️ Fixed deprecated API usage in test files
+- 🔄 Updated `tester.binding.window` to `tester.view` methods
+- 🔄 Replaced deprecated `textScaleFactor` with `textScaler`
+- 📝 Improved documentation with English versions
+
+### Documentation
+- 📚 Added English README.md
+- 📚 Added English CHANGELOG.md
+- 🌏 Maintained Chinese versions (README_CN.md, CHANGELOG_CN.md)
+
 ## 0.1.0
 
 ### New Features

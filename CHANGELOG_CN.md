@@ -1,3 +1,16 @@
+## 0.1.1
+
+### 问题修复
+- 🛠️ 修复了测试文件中的废弃API使用
+- 🔄 更新 `tester.binding.window` 为 `tester.view` 方法
+- 🔄 替换废弃的 `textScaleFactor` 为 `textScaler`
+- 📝 改进了英文文档版本
+
+### 文档更新
+- 📚 添加了英文README.md
+- 📚 添加了英文CHANGELOG.md
+- 🌏 保留了中文版本 (README_CN.md, CHANGELOG_CN.md)
+
 ## 0.1.0
 
 ### 新增功能
