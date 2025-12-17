@@ -17,7 +17,7 @@
 
 ```yaml
 dependencies:
-  flutter_hello_widget: ^0.1.1
+  flutter_hello_widget: ^0.1.2
 ```
 
 然后运行：
@@ -175,7 +175,7 @@ flutter test test/presentation/hello_ui_utils_test.dart
 查看 `example` 目录中的完整示例应用，了解所有功能的使用方法：
 
 ```bash
-cd example/example_app
+cd example
 flutter run
 ```
 
