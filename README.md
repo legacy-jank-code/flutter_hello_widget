@@ -17,7 +17,7 @@ Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  flutter_hello_widget: ^0.1.1
+  flutter_hello_widget: ^0.1.2
 ```
 
 Then run:

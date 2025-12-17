@@ -1,6 +1,6 @@
 name: flutter_hello_widget
 description: "A feature-rich Flutter component library providing customizable Hello series UI components with focus on accessibility and semantic labeling support."
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/legacy-jank-code/flutter_hello_widget
 repository: https://github.com/legacy-jank-code/flutter_hello_widget
 issue_tracker: https://github.com/legacy-jank-code/flutter_hello_widget/issues

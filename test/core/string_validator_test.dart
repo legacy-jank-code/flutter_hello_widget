@@ -50,8 +50,6 @@ void main() {
     });
 
     group('isValidSemanticLabel 方法测试', () {
-
-
       test('应该返回true当输入为有效字符串', () {
         expect(StringValidator.isValidSemanticLabel('test'), isTrue);
       });

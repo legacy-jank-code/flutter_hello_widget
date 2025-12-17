@@ -23,7 +23,7 @@ extension ButtonSizeExtension on ButtonSize {
       case ButtonSize.large:
         return const EdgeInsets.symmetric(horizontal: 24, vertical: 16);
       case ButtonSize.medium:
-      return const EdgeInsets.symmetric(horizontal: 16, vertical: 12);
+        return const EdgeInsets.symmetric(horizontal: 16, vertical: 12);
     }
   }
 
@@ -35,7 +35,7 @@ extension ButtonSizeExtension on ButtonSize {
       case ButtonSize.large:
         return 18.0;
       case ButtonSize.medium:
-      return 16.0;
+        return 16.0;
     }
   }
 
@@ -47,14 +47,14 @@ extension ButtonSizeExtension on ButtonSize {
       case ButtonSize.large:
         return '大号按钮';
       case ButtonSize.medium:
-      return '标准按钮';
+        return '标准按钮';
     }
   }
 
   /// 从字符串转换 ButtonSize
   static ButtonSize? fromString(String? value) {
     if (value == null) return null;
-    
+
     try {
       return ButtonSize.values.firstWhere(
         (e) => e.name.toLowerCase() == value.toLowerCase(),

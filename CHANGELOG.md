@@ -1,3 +1,26 @@
+## 0.1.2
+
+### Features
+- ✅ **Comprehensive Test Coverage** - Added complete unit tests for all components
+- 📊 **Coverage Reporting** - Added automated test coverage analysis scripts
+- 🔄 **CI/CD Enhancement** - Improved GitHub Actions workflow with multi-platform testing
+- 🧪 **Test Infrastructure** - Added test helpers and configuration files
+
+### Bug Fixes
+- 🛠️ **Git Configuration** - Fixed .gitignore to exclude coverage reports and IDE-specific files
+- 🔄 **Workflow Optimization** - Streamlined CI pipeline to only trigger on main branch
+- 📱 **Platform Support** - Enhanced multi-platform build and test support
+
+### Documentation
+- 📚 **Coverage Documentation** - Added coverage reporting instructions
+- 🔧 **Development Guide** - Updated development workflow documentation
+- 📝 **API Documentation** - Improved code comments and documentation
+
+### Refactoring
+- 🏗️ **Test Structure** - Reorganized test directory structure for better maintainability
+- ⚙️ **Configuration** - Updated project configuration files
+- 🔍 **Code Quality** - Enhanced static analysis and linting configuration
+
 ## 0.1.1
 
 ### Bug Fixes

@@ -1,4 +1,3 @@
-
 /// 字符串验证工具类
 class StringValidator {
   /// 私有构造函数，防止实例化
@@ -12,7 +11,7 @@ class StringValidator {
   /// 验证字符串是否为有效的按钮文本
   static bool isValidButtonText(String? text) {
     if (isNullOrEmpty(text)) return false;
-    
+
     final trimmedText = text!.trim();
     return trimmedText.isNotEmpty && trimmedText.length <= 50;
   }
