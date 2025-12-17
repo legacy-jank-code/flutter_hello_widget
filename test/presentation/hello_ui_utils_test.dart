@@ -195,8 +195,8 @@ void main() {
 
     testWidgets('应该在窄屏设备上返回false', (WidgetTester tester) async {
       // 设置较窄的测试屏幕 (宽度400 < 600，应该返回false)
-      tester.binding.window.physicalSizeTestValue = const Size(400, 800);
-      tester.binding.window.devicePixelRatioTestValue = 1.0;
+      tester.view.physicalSize = const Size(400, 800);
+      tester.view.devicePixelRatio = 1.0;
 
       bool? isWide;
 
@@ -218,8 +218,8 @@ void main() {
       expect(isWide, isFalse);
 
       // 恢复默认设置
-      tester.binding.window.clearPhysicalSizeTestValue();
-      tester.binding.window.clearDevicePixelRatioTestValue();
+      tester.view.resetPhysicalSize();
+      tester.view.resetDevicePixelRatio();
     });
   });
 

@@ -71,7 +71,7 @@ class TestHelpers {
     return MediaQuery(
       data: MediaQueryData(
         size: screenSize,
-        textScaleFactor: textScaleFactor,
+        textScaler: TextScaler.linear(textScaleFactor),
       ),
       child: MaterialApp(
         home: Scaffold(
