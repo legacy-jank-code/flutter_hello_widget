@@ -1,70 +1,70 @@
 # Flutter Hello Widget
 
-一个功能丰富的Flutter组件库，提供可定制的Hello系列UI组件，专注于无障碍访问和语义化标签支持。
+A feature-rich Flutter component library providing customizable Hello series UI components with focus on accessibility and semantic labeling support.
 
-## ✨ 特性
+## ✨ Features
 
-- 🎯 **HelloButton** - 支持多种尺寸、颜色和加载状态的可访问按钮
-- ♿ **完整无障碍支持** - 内置语义标签和屏幕阅读器支持
-- 📱 **响应式设计** - 适配不同屏幕尺寸和设备
-- 🎨 **高度可定制** - 灵活的颜色、尺寸和样式配置
-- 🧪 **完善的测试覆盖** - 包含单元测试和集成测试
-- 📝 **中文注释** - 所有公共API都包含详细的中文注释
+- 🎯 **HelloButton** - Accessible button supporting multiple sizes, colors, and loading states
+- ♿ **Full Accessibility Support** - Built-in semantic labels and screen reader support
+- 📱 **Responsive Design** - Adapts to different screen sizes and devices
+- 🎨 **Highly Customizable** - Flexible color, size, and style configuration
+- 🧪 **Comprehensive Test Coverage** - Includes unit tests and integration tests
+- 📝 **Detailed Documentation** - All public APIs include detailed documentation
 
-## 📦 安装
+## 📦 Installation
 
-在您的 `pubspec.yaml` 文件中添加以下依赖：
+Add the following dependency to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
   flutter_hello_widget: ^0.1.0
 ```
 
-然后运行：
+Then run:
 
 ```bash
 flutter pub get
 ```
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 基础使用
+### Basic Usage
 
 ```dart
 import 'package:flutter_hello_widget/flutter_hello_widget.dart';
 
-// 创建一个基础按钮
+// Create a basic button
 HelloButton(
-  text: '点击我',
+  text: 'Click Me',
   onPressed: () {
-    print('按钮被点击了！');
+    print('Button clicked!');
   },
 )
 ```
 
-### 不同尺寸的按钮
+### Different Button Sizes
 
 ```dart
 Column(
   children: [
-    // 小尺寸按钮
+    // Small size button
     HelloButton(
-      text: '小按钮',
+      text: 'Small Button',
       size: ButtonSize.small,
       color: Colors.green,
       onPressed: () {},
     ),
     
-    // 中等尺寸按钮（默认）
+    // Medium size button (default)
     HelloButton(
-      text: '中等按钮',
+      text: 'Medium Button',
       size: ButtonSize.medium,
       onPressed: () {},
     ),
     
-    // 大尺寸按钮
+    // Large size button
     HelloButton(
-      text: '大按钮',
+      text: 'Large Button',
       size: ButtonSize.large,
       color: Colors.orange,
       onPressed: () {},
@@ -73,7 +73,7 @@ Column(
 )
 ```
 
-### 带加载状态的按钮
+### Button with Loading State
 
 ```dart
 class MyWidget extends StatefulWidget {
@@ -87,7 +87,7 @@ class _MyWidgetState extends State<MyWidget> {
   Future<void> _handlePress() async {
     setState(() => _isLoading = true);
     
-    // 模拟异步操作
+    // Simulate async operation
     await Future.delayed(Duration(seconds: 2));
     
     setState(() => _isLoading = false);
@@ -96,7 +96,7 @@ class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
     return HelloButton(
-      text: '提交',
+      text: 'Submit',
       isLoading: _isLoading,
       onPressed: _isLoading ? null : _handlePress,
     );
@@ -104,101 +104,103 @@ class _MyWidgetState extends State<MyWidget> {
 }
 ```
 
-### 无障碍支持
+### Accessibility Support
 
 ```dart
 HelloButton(
-  text: '购买',
-  semanticLabel: '购买商品按钮',
+  text: 'Purchase',
+  semanticLabel: 'Purchase item button',
   onPressed: () {
-    // 处理购买逻辑
+    // Handle purchase logic
   },
 )
 ```
 
-## 📋 API 参考
+## 📋 API Reference
 
 ### HelloButton
 
-| 参数 | 类型 | 默认值 | 描述 |
-|------|------|--------|------|
-| `text` | `String` | 必填 | 按钮显示的文本 |
-| `onPressed` | `VoidCallback?` | `null` | 点击回调函数 |
-| `color` | `Color?` | `null` | 按钮背景色 |
-| `size` | `ButtonSize` | `ButtonSize.medium` | 按钮尺寸 |
-| `isLoading` | `bool` | `false` | 是否显示加载状态 |
-| `semanticLabel` | `String?` | `null` | 无障碍语义标签 |
+| Parameter | Type | Default | Description |
+|----------|------|---------|-------------|
+| `text` | `String` | Required | Button display text |
+| `onPressed` | `VoidCallback?` | `null` | Click callback function |
+| `color` | `Color?` | `null` | Button background color |
+| `size` | `ButtonSize` | `ButtonSize.medium` | Button size |
+| `isLoading` | `bool` | `false` | Whether to show loading state |
+| `semanticLabel` | `String?` | `null` | Accessibility semantic label |
 
-### ButtonSize 枚举
+### ButtonSize Enum
 
-- `ButtonSize.small` - 小尺寸，字体大小 14px
-- `ButtonSize.medium` - 中等尺寸，字体大小 16px（默认）
-- `ButtonSize.large` - 大尺寸，字体大小 18px
+- `ButtonSize.small` - Small size, font size 14px
+- `ButtonSize.medium` - Medium size, font size 16px (default)
+- `ButtonSize.large` - Large size, font size 18px
 
-### UI 工具类
+### UI Utility Class
 
 ```dart
-// 显示成功消息
-HelloUiUtils.showSuccess(context, '操作成功！');
+// Show success message
+HelloUiUtils.showSuccess(context, 'Operation successful!');
 
-// 显示警告消息
-HelloUiUtils.showWarning(context, '请注意检查输入');
+// Show warning message
+HelloUiUtils.showWarning(context, 'Please check your input');
 
-// 获取屏幕尺寸
+// Get screen size
 final screenSize = HelloUiUtils.getScreenSize(context);
 
-// 判断是否为宽屏
+// Check if wide screen
 final isWideScreen = HelloUiUtils.isWideScreen(context);
 ```
 
-## 🧪 测试
+## 🧪 Testing
 
-本包包含完整的测试用例，您可以通过以下命令运行测试：
+This package includes complete test cases. You can run tests with:
 
 ```bash
-# 运行所有测试
+# Run all tests
 flutter test
 
-# 运行特定测试文件
+# Run specific test files
 flutter test test/presentation/hello_button_test.dart
 flutter test test/presentation/hello_ui_utils_test.dart
 ```
 
-## 🔧 开发环境
+## 🔧 Development Environment
 
 - Flutter: ^3.7.0
 - Dart: ^3.7.0
-- 支持 Android、iOS、Web、macOS、Windows、Linux
+- Supports Android, iOS, Web, macOS, Windows, Linux
 
-## 📱 示例应用
+## 📱 Example App
 
-查看 `example` 目录中的完整示例应用，了解所有功能的使用方法：
+Check the `example` directory for a complete example app demonstrating all features:
 
 ```bash
-cd example/example_app
+cd example
 flutter run
 ```
 
-## 🤝 贡献
+## 🤝 Contributing
 
-欢迎提交 Issue 和 Pull Request！在贡献之前，请：
+Issues and Pull Requests are welcome! Before contributing, please:
 
-1. 阅读我们的代码规范
-2. 确保所有测试通过
-3. 添加必要的注释和文档
+1. Read our coding standards
+2. Ensure all tests pass
+3. Add necessary comments and documentation
 
-## 📄 许可证
+## 📄 License
 
-本项目使用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+This project uses MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🆘 支持
+## 🆘 Support
 
-如果您在使用过程中遇到问题，请：
+If you encounter issues, please:
 
-1. 查看文档和示例代码
-2. 在 [GitHub Issues](https://github.com/your-username/flutter_hello_widget/issues) 中搜索类似问题
-3. 创建新的 Issue 描述您的问题
+1. Check documentation and example code
+2. Search for similar issues in [GitHub Issues](https://github.com/your-username/flutter_hello_widget/issues)
+3. Create a new Issue describing your problem
 
 ---
 
-⭐ 如果这个项目对您有帮助，请给我们一个星标！
+## 📖 中文文档
+
+For Chinese documentation, please see [README_CN.md](README_CN.md) (中文文档)
