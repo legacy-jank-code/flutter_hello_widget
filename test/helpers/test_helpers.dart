@@ -8,11 +8,7 @@ class TestHelpers {
   /// 创建一个基础的MaterialApp包装器
   /// 用于简化组件测试的包装
   static Widget createTestableWidget(Widget child) {
-    return MaterialApp(
-      home: Scaffold(
-        body: child,
-      ),
-    );
+    return MaterialApp(home: Scaffold(body: child));
   }
 
   /// 创建一个带Scaffold的测试环境
@@ -39,10 +35,7 @@ class TestHelpers {
     required Widget child,
     GlobalKey<NavigatorState>? navigatorKey,
   }) {
-    return MaterialApp(
-      navigatorKey: navigatorKey,
-      home: child,
-    );
+    return MaterialApp(navigatorKey: navigatorKey, home: child);
   }
 
   /// 创建一个带主题的测试环境
@@ -55,9 +48,7 @@ class TestHelpers {
     return MaterialApp(
       theme: theme ?? ThemeData.light(),
       darkTheme: darkTheme,
-      home: Scaffold(
-        body: child,
-      ),
+      home: Scaffold(body: child),
     );
   }
 
@@ -73,11 +64,7 @@ class TestHelpers {
         size: screenSize,
         textScaler: TextScaler.linear(textScaleFactor),
       ),
-      child: MaterialApp(
-        home: Scaffold(
-          body: child,
-        ),
-      ),
+      child: MaterialApp(home: Scaffold(body: child)),
     );
   }
 
@@ -91,9 +78,7 @@ class TestHelpers {
     return MaterialApp(
       locale: locale,
       localizationsDelegates: localizationsDelegates,
-      home: Scaffold(
-        body: child,
-      ),
+      home: Scaffold(body: child),
     );
   }
 
@@ -119,7 +104,7 @@ class TestHelpers {
     Duration checkInterval = const Duration(milliseconds: 100),
   }) async {
     final endTime = DateTime.now().add(timeout);
-    
+
     while (!condition()) {
       if (DateTime.now().isAfter(endTime)) {
         throw TimeoutException('等待条件超时', timeout);
@@ -158,9 +143,10 @@ class TestHelpers {
       home: Scaffold(
         body: SingleChildScrollView(
           scrollDirection: scrollDirection,
-          child: scrollDirection == Axis.vertical
-              ? Column(children: children)
-              : Row(children: children),
+          child:
+              scrollDirection == Axis.vertical
+                  ? Column(children: children)
+                  : Row(children: children),
         ),
       ),
     );
@@ -287,7 +273,7 @@ class WidgetTestUtils {
     Duration timeout = const Duration(seconds: 5),
   }) async {
     final endTime = DateTime.now().add(timeout);
-    
+
     while (finder.evaluate().isEmpty) {
       if (DateTime.now().isAfter(endTime)) {
         throw TimeoutException('等待Widget出现超时', timeout);
