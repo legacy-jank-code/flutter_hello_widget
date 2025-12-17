@@ -1,0 +1,99 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # 当推送v开头的tag时触发
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 需要写入权限来创建release
+    timeout-minutes: 10  # 设置超时时间，防止长时间运行
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # 获取所有历史记录
+    
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: 'stable'
+        channel: stable
+    
+    - name: Install dependencies
+      run: flutter pub get
+    
+    - name: Run tests
+      run: flutter test
+    
+    - name: Run static analysis
+      run: flutter analyze
+    
+    - name: Extract version from tag
+      id: get_version
+      run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+    
+    - name: Extract changelog
+      id: extract_changelog
+      run: |
+        # 提取当前版本的changelog
+        VERSION="${GITHUB_REF#refs/tags/v}"
+        awk "/^## $VERSION$/,/^## /" CHANGELOG.md | head -n -1 > current_changelog.txt
+        echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+        cat current_changelog.txt >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+    
+    - name: Create Release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ steps.get_version.outputs.VERSION }}
+        body: |
+          ## Changes in ${{ steps.get_version.outputs.VERSION }}
+          
+          ${{ steps.extract_changelog.outputs.CHANGELOG }}
+          
+          ## Installation
+          
+          Add this to your `pubspec.yaml`:
+          
+          ```yaml
+          dependencies:
+            flutter_hello_widget: ^${{ steps.get_version.outputs.VERSION }}
+          ```
+          
+          Then run:
+          ```bash
+          flutter pub get
+          ```
+          
+          ## Documentation
+          
+          - [English Documentation](https://github.com/${{ github.repository }}/blob/main/README.md)
+          - [中文文档](https://github.com/${{ github.repository }}/blob/main/README_CN.md)
+          
+          ## Testing
+          
+          All tests pass ✅
+          - Static analysis: ✅
+          - Unit tests: ✅
+          - Integration tests: ✅
+        draft: false
+        prerelease: false
+    
+    - name: Upload Release Asset (Optional)
+      if: false  # 如果需要上传构建产物，改为true
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./build/flutter_hello_widget.zip  # 示例路径
+        asset_name: flutter_hello_widget-${{ steps.get_version.outputs.VERSION }}.zip
+        asset_content_type: application/zip
