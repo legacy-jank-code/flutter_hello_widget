@@ -17,7 +17,7 @@
 
 ```yaml
 dependencies:
-  flutter_hello_widget: ^0.0.1
+  flutter_hello_widget: ^0.1.0
 ```
 
 然后运行：
